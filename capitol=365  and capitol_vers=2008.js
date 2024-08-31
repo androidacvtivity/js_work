@@ -1,5 +1,6 @@
-function sumCap_Rind0000001() {
+function sumCap_Rind0000000() {
     var rowIDs = [
+        { id: "60503", rind: "0000000" },
         { id: "60504", rind: "0101000" },
         { id: "60073", rind: "0111000" },
         { id: "60731", rind: "0111001" },
@@ -1688,137 +1689,64 @@ function sumCap_Rind0000001() {
 
 
     ];
-
+    
+    //It is correct - col.1=col.2+3+4+5 for each row
+    //Variabilile sunt numere float cu doua cifre dupa virgula
+    //col.1=col.2+3+4+5
+    //Col1 must be read only for each row
     var sumCol1 = 0;
     var sumCol2 = 0;
     var sumCol3 = 0;
     var sumCol4 = 0;
     var sumCol5 = 0;
-    var sumCol6 = 0;
-    var sumCol7 = 0;
-    var sumCol8 = 0;
-    var sumCol9 = 0;
-    var sumCol10 = 0;
-    var sumCol11 = 0;
-    var sumCol12 = 0;
-    var sumCol13 = 0;
-    var sumCol14 = 0;
 
     // Calculate the sums
     rowIDs.forEach(function (row) {
-        var col1Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_1").val()) || 0;
-        sumCol1 += col1Val;
-
-        var col3Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_3").val()) || 0;
-        sumCol3 += col3Val;
-
-        var col4Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_4").val()) || 0;
-        sumCol4 += col4Val;
-
-        var col5Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_5").val()) || 0;
-        sumCol5 += col5Val;
-
-        // Calculate Column 2 as the sum of Columns 3, 4, and 5 for the current row
-        var col2Val = col3Val + col4Val + col5Val;
+        var col2Val = parseFloat($("#25_365_" + row.id + "_" + row.rind + "_2").val()) || 0.00;
         sumCol2 += col2Val;
 
-        // If col2Val is 0, set it to an empty string, otherwise set it as integer
-        $("#41_398_" + row.id + "_" + row.rind + "_2").val(col2Val !== 0 ? col2Val : "").prop("readonly", true);
+        var col3Val = parseFloat($("#25_365_" + row.id + "_" + row.rind + "_3").val()) || 0.00;
+        sumCol3 += col3Val;
 
-        var col6Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_6").val()) || 0;
-        sumCol6 += col6Val;
+        var col4Val = parseFloat($("#25_365_" + row.id + "_" + row.rind + "_4").val()) || 0.00;
+        sumCol4 += col4Val;
 
-        var col7Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_7").val()) || 0;
-        sumCol7 += col7Val;
+        var col5Val = parseFloat($("#25_365_" + row.id + "_" + row.rind + "_5").val()) || 0.00;
+        sumCol5 += col5Val;
 
-        var col8Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_8").val()) || 0;
-        sumCol8 += col8Val;
+        // Calculate Column 1 as the sum of Columns 2, 3, 4, and 5 for the current row
+        var col1Val = col2Val + col3Val + col4Val + col5Val;
+        sumCol1 += col1Val;
 
-        var col9Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_9").val()) || 0;
-        sumCol9 += col9Val;
-
-        var col10Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_10").val()) || 0;
-        sumCol10 += col10Val;
-
-        var col11Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_11").val()) || 0;
-        sumCol11 += col11Val;
-
-        var col12Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_12").val()) || 0;
-        sumCol12 += col12Val;
-
-        var col13Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_13").val()) || 0;
-        sumCol13 += col13Val;
-
-        var col14Val = parseInt($("#41_398_" + row.id + "_" + row.rind + "_14").val()) || 0;
-        sumCol14 += col14Val;
+        // If col1Val is 0, set it to an empty string, otherwise set it as a float with two decimal places
+        $("#25_365_" + row.id + "_" + row.rind + "_1").val(col1Val !== 0 ? col1Val.toFixed(2) : "").prop("readonly", true);
     });
 
-    // Set the sums in row 0000001
-    var rind0000001Col1 = $("#41_398_18406_0000001_1");
-    var rind0000001Col2 = $("#41_398_18406_0000001_2");
-    var rind0000001Col3 = $("#41_398_18406_0000001_3");
-    var rind0000001Col4 = $("#41_398_18406_0000001_4");
-    var rind0000001Col5 = $("#41_398_18406_0000001_5");
-    var rind0000001Col6 = $("#41_398_18406_0000001_6");
-    var rind0000001Col7 = $("#41_398_18406_0000001_7");
-    var rind0000001Col8 = $("#41_398_18406_0000001_8");
-    var rind0000001Col9 = $("#41_398_18406_0000001_9");
-    var rind0000001Col10 = $("#41_398_18406_0000001_10");
-    var rind0000001Col11 = $("#41_398_18406_0000001_11");
-    var rind0000001Col12 = $("#41_398_18406_0000001_12");
-    var rind0000001Col13 = $("#41_398_18406_0000001_13");
-    var rind0000001Col14 = $("#41_398_18406_0000001_14");
+    // Set the sum in row 0000000 for Column 1
+    // var rind0000000Col1 = $("#25_365_60503_0000000_1");
+    // rind0000000Col1.val(sumCol1 !== 0 ? sumCol1.toFixed(2) : "");
 
-    rind0000001Col1.val(sumCol1 !== 0 ? sumCol1 : "");
-    rind0000001Col2.val(sumCol2 !== 0 ? sumCol2 : ""); // This includes both row 0000001 Col2 = sum of Columns 3, 4, and 5, and sum of all rows' Col2
-    rind0000001Col3.val(sumCol3 !== 0 ? sumCol3 : "");
-    rind0000001Col4.val(sumCol4 !== 0 ? sumCol4 : "");
-    rind0000001Col5.val(sumCol5 !== 0 ? sumCol5 : "");
-    rind0000001Col6.val(sumCol6 !== 0 ? sumCol6 : "");
-    rind0000001Col7.val(sumCol7 !== 0 ? sumCol7 : "");
-    rind0000001Col8.val(sumCol8 !== 0 ? sumCol8 : "");
-    rind0000001Col9.val(sumCol9 !== 0 ? sumCol9 : "");
-    rind0000001Col10.val(sumCol10 !== 0 ? sumCol10 : "");
-    rind0000001Col11.val(sumCol11 !== 0 ? sumCol11 : "");
-    rind0000001Col12.val(sumCol12 !== 0 ? sumCol12 : "");
-    rind0000001Col13.val(sumCol13 !== 0 ? sumCol13 : "");
-    rind0000001Col14.val(sumCol14 !== 0 ? sumCol14 : "");
-
-    // Make Rind.0000001 columns read-only
-    rind0000001Col1.prop("readonly", true);
-    rind0000001Col2.prop("readonly", true);
-    rind0000001Col3.prop("readonly", true);
-    rind0000001Col4.prop("readonly", true);
-    rind0000001Col5.prop("readonly", true);
-    rind0000001Col6.prop("readonly", true);
-    rind0000001Col7.prop("readonly", true);
-    rind0000001Col8.prop("readonly", true);
-    rind0000001Col9.prop("readonly", true);
-    rind0000001Col10.prop("readonly", true);
-    rind0000001Col11.prop("readonly", true);
-    rind0000001Col12.prop("readonly", true);
-    rind0000001Col13.prop("readonly", true);
-    rind0000001Col14.prop("readonly", true);
+    // Make Rind.0000000 Column 1 read-only
+    rind0000000Col1.prop("readonly", true);
 
 
 
-
-} //End sumCap_Rind0000001 
+} //End sumCap_Rind0000000 
 
 
 
 
 
-function f_Capitol_398() {
+function f_Capitol_365() {
     // Execute the custom functions
-    sumCap_Rind0000001();
+    sumCap_Rind0000000();
 
 }
 
 var from = "";
 $(document).ready(function () {
     from = $("#formDenShort").val();
-    f_Capitol_398();
-    $("input:not([type='button']):not([readonly]):not([disabled])").on("change", f_Capitol_398);
-    $(document).on("change", "input:not([type='button']):not([readonly]):not([disabled])", f_Capitol_398);
+    f_Capitol_365();
+    $("input:not([type='button']):not([readonly]):not([disabled])").on("change", f_Capitol_365);
+    $(document).on("change", "input:not([type='button']):not([readonly]):not([disabled])", f_Capitol_365);
 });
