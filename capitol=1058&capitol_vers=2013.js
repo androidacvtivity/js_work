@@ -1,7 +1,3 @@
-//Add for 17 columns.
-//Cap.I (Rînd.010) = Sum( Rînd codul specialităţilor se începe  cu cifra-1)   (Col*)
-//Acum trebuie sa adaugam si aceasta validare (Col.12) = Sum (Col.4, 6, 8, 10)  (Rînd.*)
-//Col12 sa fie read only
 function sumCap1058_Rind010() {
     var rowIDs = [
         { id: "82440", rind: "10722.1.1" },
@@ -512,10 +508,266 @@ function sumCap1058_Rind020() {
 }
 
 
+
+function sumCap1058_Rind030() {
+    var rowIDs = [
+        { id: "82784", rind: "30722.1.1" },
+        { id: "82785", rind: "30722.2.1" },
+        { id: "82786", rind: "30722.2.2" },
+        { id: "82787", rind: "30723.1.1" },
+        { id: "82788", rind: "30723.2.1" },
+        { id: "82789", rind: "30723.3.1" },
+        { id: "82790", rind: "30723.4.1" },
+        { id: "82791", rind: "30724.1.1" },
+        { id: "82792", rind: "30731.1.1" },
+        { id: "82793", rind: "30731.1.2" },
+        { id: "82794", rind: "30731.1.3" },
+        { id: "82795", rind: "30731.2.1" },
+        { id: "82796", rind: "30731.2.2" },
+        { id: "82797", rind: "30731.2.3" },
+        { id: "82798", rind: "30731.3.1" },
+        { id: "82799", rind: "30732.1.1" },
+        { id: "82800", rind: "30732.1.2" },
+        { id: "82801", rind: "30732.2.1" },
+        { id: "82802", rind: "30732.2.2" },
+        { id: "82803", rind: "30732.2.3" },
+        { id: "82804", rind: "30732.3.1" },
+        { id: "82805", rind: "30732.4.1" },
+        { id: "82806", rind: "30732.5.1" },
+        { id: "82807", rind: "30732.5.2" },
+        { id: "82808", rind: "30732.6.1" },
+        { id: "82809", rind: "30732.6.2" },
+        { id: "82810", rind: "30732.6.3" },
+        { id: "82811", rind: "30732.7.1" },
+        { id: "82812", rind: "30732.7.2" },
+        { id: "82813", rind: "30732.7.3" },
+        { id: "82814", rind: "30811.1.1" },
+        { id: "82815", rind: "30811.2.1" },
+        { id: "82816", rind: "30811.3.1" },
+        { id: "82817", rind: "30812.1.1" },
+        { id: "82818", rind: "30812.2.1" },
+        { id: "82819", rind: "30821.1.1" },
+        { id: "82820", rind: "30831.1.1" },
+        { id: "82821", rind: "30841.1.1" },
+        { id: "82822", rind: "30911.1.1" },
+        { id: "82823", rind: "30912.1.1" },
+        { id: "82824", rind: "30912.1.2" },
+        { id: "82825", rind: "30912.1.3" },
+        { id: "82826", rind: "30912.1.4" },
+        { id: "82827", rind: "30913.1.1" },
+        { id: "82828", rind: "30913.2.1" },
+        { id: "82829", rind: "30914.1.1" },
+        { id: "82830", rind: "30914.1.2" },
+        { id: "82831", rind: "30914.1.3" },
+        { id: "82832", rind: "30914.1.4" },
+        { id: "82833", rind: "30915.1.1" },
+        { id: "82834", rind: "30916.1.1" },
+        { id: "82835", rind: "30923.1.1" },
+        { id: "82836", rind: "30923.1.2" },
+        { id: "82837", rind: "31012.1.1" },
+        { id: "82838", rind: "31012.2.1" },
+        { id: "82839", rind: "31013.1.1" },
+        { id: "82840", rind: "31014.1.1" },
+        { id: "82841", rind: "31014.1.2" },
+        { id: "82842", rind: "31015.1.1" },
+        { id: "82843", rind: "31015.1.2" },
+        { id: "82844", rind: "31015.2.1" },
+        { id: "82845", rind: "31022.1.1" },
+        { id: "82846", rind: "31031.1.1" },
+        { id: "82847", rind: "31031.2.1" },
+        { id: "82848", rind: "31031.3.1" },
+        { id: "82849", rind: "31031.4.1" },
+        { id: "82850", rind: "31032.1.1" },
+        { id: "82851", rind: "31032.2.1" },
+        { id: "82852", rind: "31041.1.1" },
+        { id: "82853", rind: "31041.2.1" },
+        { id: "82854", rind: "31041.3.1" },
+        { id: "82855", rind: "30112.1.1" },
+        { id: "82856", rind: "30112.1.2" },
+        { id: "82857", rind: "30112.1.3" },
+        { id: "82858", rind: "30113.1.1" },
+        { id: "82859", rind: "30114.1.1" },
+        { id: "82860", rind: "30114.1.2" },
+        { id: "82861", rind: "30114.2.1" },
+        { id: "82862", rind: "30114.3.1" },
+        { id: "82863", rind: "30211.1.1" },
+        { id: "82864", rind: "30211.2.1" },
+        { id: "82865", rind: "30211.2.2" },
+        { id: "82866", rind: "30212.1.1" },
+        { id: "82867", rind: "30212.1.2" },
+        { id: "82868", rind: "30212.1.3" },
+        { id: "82869", rind: "30213.1.1" },
+        { id: "82870", rind: "30213.2.1" },
+        { id: "82871", rind: "30213.3.1" },
+        { id: "82872", rind: "30214.1.1" },
+        { id: "82873", rind: "30214.2.1" },
+        { id: "82874", rind: "30214.3.1" },
+        { id: "82875", rind: "30215.1.1" },
+        { id: "82876", rind: "30215.2.1" },
+        { id: "82877", rind: "30215.2.2" },
+        { id: "82878", rind: "30215.3.1" },
+        { id: "82879", rind: "30215.3.2" },
+        { id: "82880", rind: "30215.4.1" },
+        { id: "82881", rind: "30215.5.1" },
+        { id: "82882", rind: "30215.6.1" },
+        { id: "82883", rind: "30215.7.1" },
+        { id: "82884", rind: "30215.7.2" },
+        { id: "82885", rind: "30221.1.1" },
+        { id: "82886", rind: "30322.1.1" },
+        { id: "82887", rind: "30411.1.1" },
+        { id: "82888", rind: "30411.2.1" },
+        { id: "82889", rind: "30412.1.1" },
+        { id: "82890", rind: "30412.2.1" },
+        { id: "82891", rind: "30413.1.1" },
+        { id: "82892", rind: "30413.2.1" },
+        { id: "82893", rind: "30413.3.1" },
+        { id: "82894", rind: "30413.4.1" },
+        { id: "82895", rind: "30414.1.1" },
+        { id: "82896", rind: "30414.2.1" },
+        { id: "82897", rind: "30415.1.1" },
+        { id: "82898", rind: "30416.1.1" },
+        { id: "82899", rind: "30416.2.1" },
+        { id: "82900", rind: "30416.2.2" },
+        { id: "82901", rind: "30416.3.1" },
+        { id: "82902", rind: "30421.1.1" },
+        { id: "82903", rind: "30421.1.2" },
+        { id: "82904", rind: "30421.1.3" },
+        { id: "82905", rind: "30421.2.1" },
+        { id: "82906", rind: "30521.1.1" },
+        { id: "82907", rind: "30521.2.1" },
+        { id: "82908", rind: "30521.3.1" },
+        { id: "82909", rind: "30532.1.1" },
+        { id: "82910", rind: "30533.1.1" },
+        { id: "82911", rind: "30611.1.1" },
+        { id: "82912", rind: "30611.2.1" },
+        { id: "82913", rind: "30611.3.1" },
+        { id: "82914", rind: "30611.4.1" },
+        { id: "82915", rind: "30711.1.1" },
+        { id: "82916", rind: "30711.2.1" },
+        { id: "82917", rind: "30713.1.1" },
+        { id: "82918", rind: "30713.2.1" },
+        { id: "82919", rind: "30713.3.1" },
+        { id: "82964", rind: "30713.4.1" },
+        { id: "82965", rind: "30713.5.1" },
+        { id: "82966", rind: "30713.6.1" },
+        { id: "82967", rind: "30713.7.1" },
+        { id: "82920", rind: "30714.1.1" },
+        { id: "82921", rind: "30714.2.1" },
+        { id: "82922", rind: "30714.3.1" },
+        { id: "82923", rind: "30714.4.1" },
+        { id: "82924", rind: "30714.5.1" },
+        { id: "82925", rind: "30714.6.1" },
+        { id: "82926", rind: "30714.7.1" },
+        { id: "82927", rind: "30714.8.1" },
+        { id: "82928", rind: "30714.9.1" },
+        { id: "82929", rind: "30714.10.1" },
+        { id: "82930", rind: "30715.1.1" },
+        { id: "82931", rind: "30715.2.1" },
+        { id: "82932", rind: "30715.3.1" },
+        { id: "82933", rind: "30715.4.1" },
+        { id: "82934", rind: "30715.5.1" },
+        { id: "82935", rind: "30715.6.1" },
+        { id: "82936", rind: "30715.7.1" },
+        { id: "82937", rind: "30715.8.1" },
+        { id: "82938", rind: "30715.8.2" },
+        { id: "82939", rind: "30715.8.3" },
+        { id: "82940", rind: "30715.9.1" },
+        { id: "82941", rind: "30715.10.1" },
+        { id: "82942", rind: "30716.1.1" },
+        { id: "82943", rind: "30716.2.1" },
+        { id: "82944", rind: "30716.3.1" },
+        { id: "82945", rind: "30716.4.1" },
+        { id: "82946", rind: "30716.5.1" },
+        { id: "82947", rind: "30716.6.1" },
+        { id: "82948", rind: "30716.7.1" },
+        { id: "82949", rind: "30721.1.1" },
+        { id: "82950", rind: "30721.2.1" },
+        { id: "82951", rind: "30721.3.1" },
+        { id: "82952", rind: "30721.3.2" },
+        { id: "82953", rind: "30721.3.3" },
+        { id: "82954", rind: "30721.4.1" },
+        { id: "82955", rind: "30721.5.1" }];
+
+    // Declare variables to store the sums for 17 columns
+    var sumCol1 = 0, sumCol2 = 0, sumCol3 = 0, sumCol4 = 0, sumCol5 = 0,
+        sumCol6 = 0, sumCol7 = 0, sumCol8 = 0, sumCol9 = 0, sumCol10 = 0,
+        sumCol11 = 0, sumCol12 = 0, sumCol13 = 0, sumCol14 = 0, sumCol15 = 0,
+        sumCol16 = 0, sumCol17 = 0;
+
+    // Loop through each row
+    rowIDs.forEach(function (row) {
+        var escapedRind = row.rind.replace(/\./g, "\\.");  // Escape the dots in `rind`
+
+        // Sum the values for each column (1 to 17)
+        sumCol1 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_1").val()) || 0;
+        sumCol2 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_2").val()) || 0;
+        sumCol3 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_3").val()) || 0;
+        sumCol4 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_4").val()) || 0;
+        sumCol5 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_5").val()) || 0;
+        sumCol6 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_6").val()) || 0;
+        sumCol7 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_7").val()) || 0;
+        sumCol8 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_8").val()) || 0;
+        sumCol9 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_9").val()) || 0;
+        sumCol10 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_10").val()) || 0;
+        sumCol11 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_11").val()) || 0;
+
+        // Calculate sum for column 12 as sum of columns 4, 6, 8, and 10
+        var col12 = (parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_4").val()) || 0)
+            + (parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_6").val()) || 0)
+            + (parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_8").val()) || 0)
+            + (parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_10").val()) || 0);
+
+        // Update the value of column 12 and set it to readonly
+        $("#50_1058_" + row.id + "_" + escapedRind + "_12").val(col12).prop("readonly", true);
+
+        sumCol12 += col12; // Add the calculated column 12 value to the total sum
+        sumCol13 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_13").val()) || 0;
+        // Cap.I(Col.14) = Sum(Col.5, 7, 9, 11)(Rînd.*)
+
+
+
+        // Calculate sum for column 12 as sum of columns 4, 6, 8, and 10
+        var col14 = (parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_5").val()) || 0)
+            + (parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_7").val()) || 0)
+            + (parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_9").val()) || 0)
+            + (parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_11").val()) || 0);
+
+        // Update the value of column 12 and set it to readonly
+        $("#50_1058_" + row.id + "_" + escapedRind + "_14").val(col14).prop("readonly", true);
+
+        sumCol14 += col14; // Add the calculated column 12 value to the total sum
+
+        sumCol15 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_15").val()) || 0;
+        sumCol16 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_16").val()) || 0;
+        sumCol17 += parseInt($("#50_1058_" + row.id + "_" + escapedRind + "_17").val()) || 0;
+    });
+
+    // Set the calculated values into the respective readonly fields for row 010
+    $("#50_1058_81543_030_1").val(sumCol1 !== 0 ? sumCol1 : "").prop("readonly", true);
+    $("#50_1058_81543_030_2").val(sumCol2 !== 0 ? sumCol2 : "").prop("readonly", true);
+    $("#50_1058_81543_030_3").val(sumCol3 !== 0 ? sumCol3 : "").prop("readonly", true);
+    $("#50_1058_81543_030_4").val(sumCol4 !== 0 ? sumCol4 : "").prop("readonly", true);
+    $("#50_1058_81543_030_5").val(sumCol5 !== 0 ? sumCol5 : "").prop("readonly", true);
+    $("#50_1058_81543_030_6").val(sumCol6 !== 0 ? sumCol6 : "").prop("readonly", true);
+    $("#50_1058_81543_030_7").val(sumCol7 !== 0 ? sumCol7 : "").prop("readonly", true);
+    $("#50_1058_81543_030_8").val(sumCol8 !== 0 ? sumCol8 : "").prop("readonly", true);
+    $("#50_1058_81543_030_9").val(sumCol9 !== 0 ? sumCol9 : "").prop("readonly", true);
+    $("#50_1058_81543_030_10").val(sumCol10 !== 0 ? sumCol10 : "").prop("readonly", true);
+    $("#50_1058_81543_030_11").val(sumCol11 !== 0 ? sumCol11 : "").prop("readonly", true);
+    $("#50_1058_81543_030_12").val(sumCol12 !== 0 ? sumCol12 : "").prop("readonly", true);  // Set as readonly
+    $("#50_1058_81543_030_13").val(sumCol13 !== 0 ? sumCol13 : "").prop("readonly", true);
+    $("#50_1058_81543_030_14").val(sumCol14 !== 0 ? sumCol14 : "").prop("readonly", true);
+    $("#50_1058_81543_030_15").val(sumCol15 !== 0 ? sumCol15 : "").prop("readonly", true);
+    $("#50_1058_81543_030_16").val(sumCol16 !== 0 ? sumCol16 : "").prop("readonly", true);
+    $("#50_1058_81611_020_17").val(sumCol17 !== 0 ? sumCol17 : "").prop("readonly", true);
+
+}
+
 function f_Capitol_1058() {
     // Execute the custom functions
     sumCap1058_Rind010();
     sumCap1058_Rind020();
+    sumCap1058_Rind030();
 
  }
 
