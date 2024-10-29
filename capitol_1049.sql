@@ -22,7 +22,7 @@ FROM CIS2.MD_RIND D
 WHERE
 D.STATUT = '1'  AND  
 ---- 
-D.capitol= 365 AND D.capitol_vers=2008
+D.capitol= 1049 AND D.capitol_vers=2013
 and d.rind not in ('--')
   GROUP BY
   D.ID_MD,
@@ -39,9 +39,11 @@ and d.rind not in ('--')
 WHERE
 D.STATUT = '1'  AND  
 ---- 
-D.capitol= 365 AND D.capitol_vers = 2008
+D.capitol= 1049 AND D.capitol_vers = 2013
 
 AND D.RIND NOT IN ('-')
+AND 
+(D.ORDINE > 4000 AND D.ORDINE < 5000)
 
   GROUP BY
    D.ID_MD,
