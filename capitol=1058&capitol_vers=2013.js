@@ -759,7 +759,7 @@ function sumCap1058_Rind030() {
     $("#50_1058_81543_030_14").val(sumCol14 !== 0 ? sumCol14 : "").prop("readonly", true);
     $("#50_1058_81543_030_15").val(sumCol15 !== 0 ? sumCol15 : "").prop("readonly", true);
     $("#50_1058_81543_030_16").val(sumCol16 !== 0 ? sumCol16 : "").prop("readonly", true);
-    $("#50_1058_81611_020_17").val(sumCol17 !== 0 ? sumCol17 : "").prop("readonly", true);
+    $("#50_1058_81543_030_17").val(sumCol17 !== 0 ? sumCol17 : "").prop("readonly", true);
 
 }
 

@@ -1,0 +1,63 @@
+$(document).ready(function () {
+    from = $("#formDenShort").val();
+    fM1_CAPII();
+});
+
+$(function () {
+    $("input:not([type='button']):not([readonly]):not([disabled])").on("input", function () {
+        fM1_CAPII();
+    });
+});
+
+function fM1_CAPII() {
+    // Array to store jQuery objects for each row
+    const rows = {
+        R10: initializeRow(10, "78303"),
+        R20: initializeRow(20, "78304"),
+        R30: initializeRow(30, "78305"),
+        R40: initializeRow(40, "78306"),
+        R50: initializeRow(50, "78307"),
+        R60: initializeRow(60, "78308"),
+        R70: initializeRow(70, "78309"),
+        R80: initializeRow(80, "78310"),
+        R90: initializeRow(90, "78311"),
+        R100: initializeRow(100, "78312"),
+        R110: initializeRow(110, "78313"),
+        R120: initializeRow(120, "78314"),
+        R160: initializeRow(160, "78315")
+    };
+
+    // Set readonly properties
+    Object.keys(rows).forEach(rowKey => {
+        rows[rowKey].forEach(cell => cell.prop("readonly", true));
+    });
+
+    // Perform calculations
+    calculateRowSums(rows);
+    calculateColumnSums(rows);
+}
+
+// Helper to initialize row cells
+function initializeRow(rowNumber, idPart) {
+    return Array.from({ length: 12 }, (_, i) => $(`#76_28_${idPart}_${rowNumber}_${i + 1}`));
+}
+
+// Sum cells in each row and update the first cell with the result
+function calculateRowSums(rows) {
+    Object.keys(rows).forEach(rowKey => {
+        const row = rows[rowKey];
+        const sum = row.slice(1).reduce((acc, cell) => acc + parseFloat(cell.val() || 0), 0);
+        row[0].val(sum.toFixed(0));
+    });
+}
+
+// Sum cells in each column across rows and update the R10 row with column sums
+function calculateColumnSums(rows) {
+    const columns = 12;
+    for (let i = 0; i < columns; i++) {
+        let columnSum = Object.keys(rows).reduce((acc, rowKey) => {
+            return acc + parseFloat(rows[rowKey][i].val() || 0);
+        }, 0);
+        rows.R10[i].val(columnSum.toFixed(0));
+    }
+}
