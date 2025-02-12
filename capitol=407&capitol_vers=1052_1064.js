@@ -371,7 +371,7 @@ function sumCapI_Rind1() {
        
     });
 
-    $("#44_407_69496_1_4").val(sumCol4_8 !== 0.0 ? sumCol4_8 : "").prop("readonly", true);
+    $("#44_407_69496_1_4").val(sumCol4_8 !== 0 ? sumCol4_8 : "").prop("readonly", true);
    
 }
 
